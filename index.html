@@ -11,6 +11,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
+    /* 🍋 NEW COLOR SYSTEM */
     --primary: #FFD84D;
     --primary-light: #FFF3B0;
     --primary-pale: #FFF9D6;
@@ -36,9 +37,7 @@
 
   /* NAV */
   nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex; align-items: center; justify-content: space-between;
     padding: 1.25rem 3rem;
     border-bottom: 1px solid var(--border);
     background: var(--white);
@@ -50,15 +49,11 @@
   .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 
   .logo-icon {
-    width: 32px;
-    height: 32px;
+    width: 32px; height: 32px;
     background: var(--primary);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: white; font-weight: 600;
   }
 
   .logo-text {
@@ -75,6 +70,7 @@
   .nav-links a {
     text-decoration: none;
     font-size: 0.875rem;
+    font-weight: 400;
     color: var(--mid);
   }
 
@@ -83,45 +79,65 @@
   .nav-cta {
     background: var(--primary);
     color: white;
-    padding: 0.5rem 1.25rem;
     text-decoration: none;
+    padding: 0.5rem 1.25rem;
     border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background 0.2s;
   }
+
+  .nav-cta:hover { background: #E6C43D; }
 
   /* HERO */
   .hero {
-    padding: 6rem 3rem;
+    padding: 6rem 3rem 5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
     max-width: 1100px;
     margin: 0 auto;
-    gap: 2rem;
   }
 
   .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--primary);
     border: 1px solid var(--primary);
-    display: inline-block;
     padding: 0.3rem 0.75rem;
+    border-radius: 2px;
     margin-bottom: 1.5rem;
   }
 
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
+    font-size: 3.25rem;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
   }
 
-  .hero h1 em { color: var(--primary); }
+  .hero h1 em { color: var(--primary); font-style: italic; }
 
-  .hero p { color: var(--mid); margin-bottom: 2rem; }
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--mid);
+    font-weight: 300;
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+  }
 
   .btn-primary {
     background: var(--charcoal);
     color: white;
     padding: 0.85rem 2rem;
-    text-decoration: none;
     border-radius: 4px;
+    text-decoration: none;
   }
 
   .btn-secondary {
@@ -130,24 +146,20 @@
     text-decoration: none;
   }
 
-  /* SECTIONS */
-  section { padding: 5rem 3rem; }
-
-  .services-bg { background: var(--light); }
-
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-
-  .section-label { color: var(--primary); }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  .btn-gold {
+    background: var(--primary);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
   }
 
-  .section-sub { color: var(--mid); margin-bottom: 2rem; }
+  .btn-gold:hover { background: #E6C43D; }
 
   /* SERVICES */
+  .services-bg { background: var(--light); }
+
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -157,40 +169,64 @@
   .service-card {
     background: var(--white);
     border: 1px solid var(--border);
-    padding: 2rem;
     border-radius: 8px;
+    padding: 2rem;
+    transition: border-color 0.2s;
   }
 
   .service-card:hover { border-color: var(--primary); }
 
   .service-icon {
+    width: 40px; height: 40px;
     background: var(--primary-light);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-card h3 { margin-bottom: 0.5rem; }
+
+  .service-card p { font-size: 0.875rem; color: var(--mid); }
+
+  .service-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.72rem;
+    color: var(--primary);
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    width: 100%;
+  }
+
+  /* ABOUT / PROCESS / CTA / FOOTER */
+  section { padding: 5rem 3rem; }
+
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label { color: var(--primary); }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
     margin-bottom: 1rem;
   }
 
-  /* CTA */
-  .cta {
+  .section-sub { color: var(--mid); margin-bottom: 3rem; }
+
+  .services-bg { background: var(--light); }
+
+  .cta-banner {
     background: var(--charcoal);
     color: white;
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 5rem 3rem;
   }
 
-  .cta input {
-    padding: 0.75rem;
-    margin: 0.5rem;
-  }
-
-  .cta button {
-    background: var(--primary);
-    border: none;
-    padding: 0.75rem 1.5rem;
-    cursor: pointer;
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 3rem;
+    text-align: center;
+    color: var(--mid);
   }
 
 </style>
@@ -220,8 +256,10 @@
   <div>
     <div class="hero-eyebrow">Financial & Legal Assistant Services</div>
     <h1>Sharp books.<br/><em>Solid contracts.</em><br/>Peace of mind.</h1>
-    <p>Bookkeeping, accounts receivable, financial reporting, and legal support.</p>
+    <p>Bookkeeping, accounts receivable, financial reporting, and legal document support — all under one roof.</p>
+
     <a href="#services" class="btn-primary">Explore services</a>
+    <a href="#contact" class="btn-secondary">Schedule a call →</a>
   </div>
 </div>
 
@@ -236,33 +274,60 @@
       <div class="service-card">
         <div class="service-icon">📒</div>
         <h3>Bookkeeping</h3>
+        <p>Clean, accurate records and reconciliations.</p>
+        <span class="service-tag">Financial Operations</span>
       </div>
 
       <div class="service-card">
         <div class="service-icon">🧾</div>
         <h3>Accounts Receivable</h3>
+        <p>Invoice tracking and collections management.</p>
+        <span class="service-tag">Financial Operations</span>
       </div>
 
       <div class="service-card">
         <div class="service-icon">📊</div>
         <h3>Financial Reporting</h3>
+        <p>Clear insights from your financials.</p>
+        <span class="service-tag">Analysis</span>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<div class="cta" id="contact">
-  <h2>Let's work together</h2>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">About</div>
+    <h2 class="section-title">Experience you can count on</h2>
+    <p class="section-sub">Professional financial and legal support.</p>
+  </div>
+</section>
 
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-label">Process</div>
+    <h2 class="section-title">Simple and clear</h2>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner" id="contact">
+  <h2>Let's work together</h2>
   <form action="https://formspree.io/f/mlgoadlb" method="POST">
     <input type="text" name="name" placeholder="Your name" required />
     <input type="email" name="email" placeholder="Your email" required />
-    <br/>
-    <button type="submit">Send</button>
+    <br/><br/>
+    <button type="submit" class="btn-gold">Send</button>
   </form>
 </div>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Lauren's Lemonade Co.
+</footer>
 
 </body>
 </html>
