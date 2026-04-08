@@ -11,7 +11,6 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    /* 🍋 NEW BRAND COLORS */
     --primary: #FFD84D;
     --primary-light: #FFF3B0;
     --primary-pale: #FFF9D6;
@@ -37,7 +36,9 @@
 
   /* NAV */
   nav {
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 1.25rem 3rem;
     border-bottom: 1px solid var(--border);
     background: var(--white);
@@ -49,11 +50,15 @@
   .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 
   .logo-icon {
-    width: 32px; height: 32px;
+    width: 32px;
+    height: 32px;
     background: var(--primary);
     border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; color: white; font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
   }
 
   .logo-text {
@@ -78,50 +83,45 @@
   .nav-cta {
     background: var(--primary);
     color: white;
-    text-decoration: none;
     padding: 0.5rem 1.25rem;
+    text-decoration: none;
     border-radius: 4px;
   }
 
-  .nav-cta:hover { background: #e6c43d; }
-
   /* HERO */
   .hero {
-    padding: 6rem 3rem 5rem;
+    padding: 6rem 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: center;
     max-width: 1100px;
     margin: 0 auto;
+    gap: 2rem;
   }
 
   .hero-eyebrow {
     color: var(--primary);
     border: 1px solid var(--primary);
-    padding: 0.3rem 0.75rem;
     display: inline-block;
+    padding: 0.3rem 0.75rem;
     margin-bottom: 1.5rem;
   }
 
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3.25rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
   }
 
   .hero h1 em { color: var(--primary); }
 
-  .hero p {
-    color: var(--mid);
-    margin-bottom: 2.5rem;
-  }
+  .hero p { color: var(--mid); margin-bottom: 2rem; }
 
   .btn-primary {
     background: var(--charcoal);
     color: white;
     padding: 0.85rem 2rem;
     text-decoration: none;
+    border-radius: 4px;
   }
 
   .btn-secondary {
@@ -130,40 +130,67 @@
     text-decoration: none;
   }
 
-  /* CTA BUTTON */
-  .btn-gold {
-    background: var(--primary);
-    color: white;
-    padding: 0.85rem 2rem;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-gold:hover { background: #e6c43d; }
-
-  /* SERVICE CARD */
-  .service-card:hover { border-color: var(--primary); }
-
-  .service-icon {
-    background: var(--primary-light);
-  }
-
-  .service-pill {
-    background: var(--primary-light);
-  }
-
-  /* SECTION */
+  /* SECTIONS */
   section { padding: 5rem 3rem; }
 
   .services-bg { background: var(--light); }
 
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
   .section-label { color: var(--primary); }
 
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem 3rem;
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub { color: var(--mid); margin-bottom: 2rem; }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  .service-card:hover { border-color: var(--primary); }
+
+  .service-icon {
+    background: var(--primary-light);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--charcoal);
+    color: white;
     text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .cta input {
+    padding: 0.75rem;
+    margin: 0.5rem;
+  }
+
+  .cta button {
+    background: var(--primary);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
   }
 
 </style>
@@ -193,27 +220,49 @@
   <div>
     <div class="hero-eyebrow">Financial & Legal Assistant Services</div>
     <h1>Sharp books.<br/><em>Solid contracts.</em><br/>Peace of mind.</h1>
-    <p>Bookkeeping, accounts receivable, financial reporting, and legal document support.</p>
-
-    <div class="hero-btns">
-      <a href="#services" class="btn-primary">Explore services</a>
-      <a href="#contact" class="btn-secondary">Schedule a call →</a>
-    </div>
+    <p>Bookkeeping, accounts receivable, financial reporting, and legal support.</p>
+    <a href="#services" class="btn-primary">Explore services</a>
   </div>
 </div>
 
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <div class="section-inner">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">What I offer</h2>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">📒</div>
+        <h3>Bookkeeping</h3>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🧾</div>
+        <h3>Accounts Receivable</h3>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Financial Reporting</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
-<div id="contact" style="padding:3rem;text-align:center;">
+<div class="cta" id="contact">
+  <h2>Let's work together</h2>
+
   <form action="https://formspree.io/f/mlgoadlb" method="POST">
     <input type="text" name="name" placeholder="Your name" required />
     <input type="email" name="email" placeholder="Your email" required />
-    <button type="submit" class="btn-gold">Send</button>
+    <br/>
+    <button type="submit">Send</button>
   </form>
 </div>
-
-<footer>
-  © 2026 Lauren's Lemonade Co.
-</footer>
 
 </body>
 </html>
